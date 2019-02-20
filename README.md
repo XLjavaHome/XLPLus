@@ -35,7 +35,7 @@
 
    ![翻译](./images/editor_popup_menu.png)
 
-   或者使用快捷键<kbd>Ctrl + Alt + 1</kbd>进行翻译。
+   或者使用快捷键<kbd>ALT+D</kbd>进行翻译。
 
 2. **自定义快捷键:**
 
@@ -43,4 +43,4 @@
 
    ![键盘设置](./images/keymap.png)
 
-自动将内容复制，并且去除空格
+将翻译后的内容复制，并且去除空格
