@@ -2,42 +2,23 @@
     <id>com.xiuyukeji.plugin.translation</id>
     <name>GoogleTranslation</name>
     <version>1.0.2</version>
-    <vendor email="a483210@163.com" url="https://github.com/a483210">a483210</vendor>
+    <vendor email="78675574@qq.com" url="http://www.yourcompany.com">你猜猜</vendor>
 
     <description><![CDATA[
-      <h1>GoogleTranslation</h1>
+      <h1>GoogleTranslationXL</h1>
       <br/>
-
-      <b>
-        <a href="https://github.com/a483210/GoogleTranslation">Home Page</a>
-      </b>
-      <br/>
-      <br/>
-
-      The plugin is based on the following items
-      <br/>
-      <br>
-      <b>
-        <a href="https://github.com/ssut/py-googletrans">py-googletrans</a> |
-        <a href="https://github.com/lsj9383/translate-set">translate-set</a> |
-        <a href="https://github.com/Skykai521/ECTranslation">ECTranslation</a> |
-        <a href="https://github.com/YiiGuxing/TranslationPlugin">TranslationPlugin</a>
-      </b>
-      <br/>
-      <br/>
-
       Plugin for translate English to Chinese.
       <br/>
       <br/>
       General Usage Instructions:
       <ul>
         <li>Choose the word you want translate.</li>
-        <li>Press CTRL + Alt + 1.</li>
+        <li>Press Alt + D.</li>
       <ul/>
     ]]></description>
 
     <change-notes><![CDATA[
-      修复泡泡窗口可能出现的显示错位问题
+      将翻译后内容自动复制到剪切板遵从驼峰命名
     ]]>
     </change-notes>
 
@@ -57,10 +38,10 @@
         <!-- Add your actions here -->
 
         <action id="GoogleTranslation" class="com.xiuyukeji.plugin.translation.GoogleTranslation"
-                text="GoogleTranslate" description="谷歌翻译">
+                text="GoogleTranslate" description="徐立优化后谷歌翻译">
             <add-to-group group-id="EditMenu" anchor="first"/>
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt 1"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="alt d"/>
         </action>
     </actions>
 

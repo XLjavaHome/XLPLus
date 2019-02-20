@@ -42,3 +42,5 @@
    <kbd>Preferences(Settings)</kbd> > <kbd>Keymap</kbd> > <kbd>搜索GoogleTranslation</kbd>。在需要添加快捷键Action上 <kbd>右键</kbd> > <kbd>add Keyboard Shortcut...</kbd> 设置快捷键（按<kbd>ESC</kbd>键可关闭气泡）。
 
    ![键盘设置](./images/keymap.png)
+
+自动将内容复制，并且去除空格

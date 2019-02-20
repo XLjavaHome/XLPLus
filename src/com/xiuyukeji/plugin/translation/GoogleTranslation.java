@@ -10,6 +10,11 @@ import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.TextRange;
 import com.xiuyukeji.plugin.translation.translator.impl.GoogleTranslator;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
 import org.apache.http.util.TextUtils;
 
 /**
@@ -20,19 +25,25 @@ import org.apache.http.util.TextUtils;
 public class GoogleTranslation extends AnAction {
     private long mLatestClickTime;
     private final GoogleTranslator mTranslator = new GoogleTranslator();
-
+    
     public GoogleTranslation() {
         super(IconLoader.getIcon("/icons/translate.png"));
     }
-
+    
     @Override
     public void actionPerformed(AnActionEvent e) {
         if (!isFastClick()) {
-            getTranslation(e);
+            try {
+                getTranslation(e);
+            } catch (ExecutionException e1) {
+                e1.printStackTrace();
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
         }
     }
-
-    private void getTranslation(AnActionEvent event) {
+    
+    private void getTranslation(AnActionEvent event) throws ExecutionException, InterruptedException {
         Editor editor = event.getData(PlatformDataKeys.EDITOR);
         if (editor == null) {
             return;
@@ -46,9 +57,13 @@ public class GoogleTranslation extends AnAction {
             }
         }
         String queryText = strip(addBlanks(selectedText));
-        new Thread(new RequestRunnable(mTranslator, editor, queryText)).start();
+        FutureTask<String> task = new FutureTask(new RequestRunnable(mTranslator, editor, queryText));
+        new Thread(task).start();
+        String result = task.get();
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(new StringSelection(result), null);
     }
-
+    
     private String getCurrentWords(Editor editor) {
         Document document = editor.getDocument();
         CaretModel caretModel = editor.getCaretModel();
@@ -59,18 +74,15 @@ public class GoogleTranslation extends AnAction {
         String lineContent = document.getText(new TextRange(lineStartOffset, lineEndOffset));
         char[] chars = lineContent.toCharArray();
         int start = 0, end = 0, cursor = caretOffset - lineStartOffset;
-
         if (!Character.isLetter(chars[cursor])) {
             return null;
         }
-
         for (int ptr = cursor; ptr >= 0; ptr--) {
             if (!Character.isLetter(chars[ptr])) {
                 start = ptr + 1;
                 break;
             }
         }
-
         int lastLetter = 0;
         for (int ptr = cursor; ptr < lineEndOffset - lineStartOffset; ptr++) {
             lastLetter = ptr;
@@ -82,10 +94,9 @@ public class GoogleTranslation extends AnAction {
         if (end == 0) {
             end = lastLetter + 1;
         }
-
         return new String(chars, start, end - start);
     }
-
+    
     private String addBlanks(String str) {
         String temp = str.replaceAll("_", " ");
         if (temp.equals(temp.toUpperCase())) {
@@ -93,16 +104,12 @@ public class GoogleTranslation extends AnAction {
         }
         return temp.replaceAll("([A-Z]+)", " $0");
     }
-
+    
     private String strip(String str) {
-        return str.replaceAll("/\\*+", "")
-                .replaceAll("\\*+/", "")
-                .replaceAll("\\*", "")
-                .replaceAll("//+", "")
-                .replaceAll("\r\n", " ")
-                .replaceAll("\\s+", " ");
+        return str.replaceAll("/\\*+", "").replaceAll("\\*+/", "").replaceAll("\\*", "").replaceAll("//+", "")
+                  .replaceAll("\r\n", " ").replaceAll("\\s+", " ");
     }
-
+    
     private boolean isFastClick() {
         long time = System.currentTimeMillis();
         long timeD = time - mLatestClickTime;
