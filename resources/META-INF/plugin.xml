@@ -3,46 +3,38 @@
     <name>GoogleTranslation</name>
     <version>1.0.2</version>
     <vendor email="78675574@qq.com" url="http://www.yourcompany.com">你猜猜</vendor>
-
     <description><![CDATA[
-      <h1>GoogleTranslationXL</h1>
+      <h1>翻译</h1>
       <br/>
       Plugin for translate English to Chinese.
       <br/>
       <br/>
       General Usage Instructions:
       <ul>
-        <li>Choose the word you want translate.</li>
-        <li>Press Alt + D.</li>
+        <li>选择你要翻译的内容或光标停在你要翻译的行</li>
+        <li>按下 Alt + D.</li>
       <ul/>
     ]]></description>
-
     <change-notes><![CDATA[
       将翻译后内容自动复制到剪切板遵从驼峰命名
     ]]>
     </change-notes>
-
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
     <idea-version since-build="145.0"/>
-
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <!-- uncomment to enable plugin in all products -->
     <depends>com.intellij.modules.lang</depends>
-
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
-
     <actions>
         <!-- Add your actions here -->
-
         <action id="GoogleTranslation" class="com.xiuyukeji.plugin.translation.GoogleTranslation"
-                text="GoogleTranslate" description="徐立优化后谷歌翻译">
+                text="优化后谷歌翻译插件_徐立" description="徐立优化后谷歌翻译">
             <add-to-group group-id="EditMenu" anchor="first"/>
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="alt d"/>
         </action>
     </actions>
-
 </idea-plugin>

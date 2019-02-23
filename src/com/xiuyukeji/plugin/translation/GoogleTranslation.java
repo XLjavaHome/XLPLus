@@ -16,6 +16,7 @@ import java.awt.datatransfer.StringSelection;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 import org.apache.http.util.TextUtils;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 谷歌翻译插件
@@ -35,66 +36,84 @@ public class GoogleTranslation extends AnAction {
         if (!isFastClick()) {
             try {
                 getTranslation(e);
-            } catch (ExecutionException e1) {
-                e1.printStackTrace();
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
+            } catch (Exception exception) {
+                exception.printStackTrace();
             }
         }
     }
     
+    /**
+     * 将内容翻译
+     *
+     * @param event
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     private void getTranslation(AnActionEvent event) throws ExecutionException, InterruptedException {
+        //1.获取要翻译的文本
         Editor editor = event.getData(PlatformDataKeys.EDITOR);
-        if (editor == null) {
-            return;
-        }
+        String queryText = getText(editor);
+        //2.获取翻译后的内容
+        String result = getTranslatedContent(editor, queryText);
+        //3.复制进剪切板
+        copyToClipboard(result);
+    }
+    
+    /**
+     * 获取翻译后的内容
+     *
+     * @param editor
+     * @param queryText
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     */
+    private String getTranslatedContent(Editor editor, String queryText) throws InterruptedException, ExecutionException {
+        FutureTask<String> task = new FutureTask(new RequestRunnable(mTranslator, editor, queryText));
+        new Thread(task).start();
+        return task.get();
+    }
+    
+    /**
+     * 获取用户选择的内容或者当前行
+     *
+     * @param editor
+     * @return
+     */
+    @NotNull
+    private String getText(Editor editor) {
         SelectionModel model = editor.getSelectionModel();
         String selectedText = model.getSelectedText();
         if (TextUtils.isEmpty(selectedText)) {
-            selectedText = getCurrentWords(editor);
-            if (TextUtils.isEmpty(selectedText)) {
-                return;
-            }
+            selectedText = getCurrentLine(editor);
         }
-        String queryText = strip(addBlanks(selectedText));
-        FutureTask<String> task = new FutureTask(new RequestRunnable(mTranslator, editor, queryText));
-        new Thread(task).start();
-        String result = task.get();
+        return strip(addBlanks(selectedText));
+    }
+    
+    /**
+     * 复制至剪切板
+     *
+     * @param result
+     */
+    private void copyToClipboard(String result) {
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(new StringSelection(result), null);
     }
     
-    private String getCurrentWords(Editor editor) {
+    /**
+     * 获取当前行
+     *
+     * @param editor
+     * @return
+     */
+    private String getCurrentLine(Editor editor) {
         Document document = editor.getDocument();
         CaretModel caretModel = editor.getCaretModel();
         int caretOffset = caretModel.getOffset();
         int lineNum = document.getLineNumber(caretOffset);
         int lineStartOffset = document.getLineStartOffset(lineNum);
         int lineEndOffset = document.getLineEndOffset(lineNum);
-        String lineContent = document.getText(new TextRange(lineStartOffset, lineEndOffset));
-        char[] chars = lineContent.toCharArray();
-        int start = 0, end = 0, cursor = caretOffset - lineStartOffset;
-        if (!Character.isLetter(chars[cursor])) {
-            return null;
-        }
-        for (int ptr = cursor; ptr >= 0; ptr--) {
-            if (!Character.isLetter(chars[ptr])) {
-                start = ptr + 1;
-                break;
-            }
-        }
-        int lastLetter = 0;
-        for (int ptr = cursor; ptr < lineEndOffset - lineStartOffset; ptr++) {
-            lastLetter = ptr;
-            if (!Character.isLetter(chars[ptr])) {
-                end = ptr;
-                break;
-            }
-        }
-        if (end == 0) {
-            end = lastLetter + 1;
-        }
-        return new String(chars, start, end - start);
+        return document.getText(new TextRange(lineStartOffset, lineEndOffset));
     }
     
     private String addBlanks(String str) {
@@ -110,6 +129,11 @@ public class GoogleTranslation extends AnAction {
                   .replaceAll("\r\n", " ").replaceAll("\\s+", " ");
     }
     
+    /**
+     * 确认你是不是快速点击
+     *
+     * @return true:不断点击，false：不是
+     */
     private boolean isFastClick() {
         long time = System.currentTimeMillis();
         long timeD = time - mLatestClickTime;

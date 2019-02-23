@@ -48,6 +48,16 @@ public class RequestRunnable implements Callable<String> {
         return resultText;
     }
     
+    private boolean isChinese(String strName) {
+        char[] cs = strName.toCharArray();
+        for (char c : cs) {
+            if (isChinese(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     /**
      * 净化
      *
@@ -78,14 +88,14 @@ public class RequestRunnable implements Callable<String> {
         return StringUtil.join(newString, "");
     }
     
-    private boolean isChinese(String strName) {
-        char[] cs = strName.toCharArray();
-        for (char c : cs) {
-            if (isChinese(c)) {
-                return true;
-            }
-        }
-        return false;
+    private void showPopupBalloon(final String result) {
+        ApplicationManager.getApplication().invokeLater(() -> {
+            //解决因为TranslationPlugin而导致的泡泡显示错位问题
+            mEditor.putUserData(PopupFactoryImpl.ANCHOR_POPUP_POSITION, null);
+            JBPopupFactory factory = JBPopupFactory.getInstance();
+            factory.createHtmlTextBalloonBuilder(result, null, new JBColor(Gray._242, Gray._0), null).createBalloon()
+                   .show(factory.guessBestPopupLocation(mEditor), Balloon.Position.below);
+        });
     }
     
     private boolean isChinese(char c) {
@@ -94,14 +104,5 @@ public class RequestRunnable implements Callable<String> {
                || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A
                || ub == Character.UnicodeBlock.GENERAL_PUNCTUATION || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION
                || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
-    }
-    
-    private void showPopupBalloon(final String result) {
-        ApplicationManager.getApplication().invokeLater(() -> {
-            mEditor.putUserData(PopupFactoryImpl.ANCHOR_POPUP_POSITION, null);//解决因为TranslationPlugin而导致的泡泡显示错位问题
-            JBPopupFactory factory = JBPopupFactory.getInstance();
-            factory.createHtmlTextBalloonBuilder(result, null, new JBColor(Gray._242, Gray._0), null).createBalloon()
-                   .show(factory.guessBestPopupLocation(mEditor), Balloon.Position.below);
-        });
     }
 }

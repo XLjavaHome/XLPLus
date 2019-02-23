@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public abstract class AbstractTranslator implements Translator {
     protected Map<Language, String> langMap = new HashMap<>();
-
+    
     @Override
     public final String translation(Language from, Language to, String query) {
         String response = "";
@@ -21,8 +21,8 @@ public abstract class AbstractTranslator implements Translator {
             return response;
         }
     }
-
+    
     protected abstract String getResponse(Language from, Language targ, String query) throws Exception;
-
+    
     protected abstract String parseString(String jsonString);
 }

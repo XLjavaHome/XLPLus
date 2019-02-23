@@ -20,3 +20,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.idea/.name
+.idea/copyright/
+.idea/deployment.xml
+.idea/inspectionProfiles/
+.idea/markdown-navigator.xml
+.idea/markdown-navigator/
+.idea/smartfox_info.xml
+out/production/GoogleTranslation/META-INF/
+out/production/GoogleTranslation/icons/
