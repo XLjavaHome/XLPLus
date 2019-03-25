@@ -1,24 +1,13 @@
 <idea-plugin>
-    <id>com.xiuyukeji.plugin.translation</id>
-    <name>GoogleTranslation</name>
-    <version>1.0.2</version>
+    <id>com.xl.plugin.xlPlugin</id>
+    <name>xldcj徐立的插件</name>
+    <version>1.0.0</version>
     <vendor email="78675574@qq.com" url="http://www.yourcompany.com">你猜猜</vendor>
     <description><![CDATA[
-      <h1>翻译</h1>
-      <br/>
-      Plugin for translate English to Chinese.
-      <br/>
-      <br/>
-      General Usage Instructions:
-      <ul>
-        <li>选择你要翻译的内容或光标停在你要翻译的行</li>
-        <li>按下 Alt + D.</li>
-      <ul/>
+      1.自动处理BUG注释<br>
+      2.自动增加行号。
     ]]></description>
-    <change-notes><![CDATA[
-      将翻译后内容自动复制到剪切板遵从驼峰命名
-    ]]>
-    </change-notes>
+    <change-notes></change-notes>
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
     <idea-version since-build="145.0"/>
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
@@ -30,11 +19,11 @@
     </extensions>
     <actions>
         <!-- Add your actions here -->
-        <action id="GoogleTranslation" class="com.xiuyukeji.plugin.translation.GoogleTranslation"
-                text="优化后谷歌翻译插件_徐立" description="徐立优化后谷歌翻译">
+        <action id="XLPLus" class="com.xiuyukeji.plugin.translation.AppendStringAction"
+                text="xlcj徐立插件" description="徐立插件">
             <add-to-group group-id="EditMenu" anchor="first"/>
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="alt d"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift L"/>
         </action>
     </actions>
 </idea-plugin>
