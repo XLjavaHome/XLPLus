@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/AppendStringAction.java" line="34" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/xl/plugin/xlplugin/XLPlusAction.java" line="32" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17bd2f7b-c17b-4cc9-8753-238cab3a31b5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoogleTranslation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/XLPlus.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/commons-beanutils-1.8.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/commons-collections-3.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/ezmorph-1.0.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/json-lib-2.4-jdk15.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/GoogleTranslation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/AppendStringAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icons/translate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icons/translate@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icons/translate@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/AppendStringAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/xl/plugin/xlplugin/XLPlusAction.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -28,13 +32,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/AppendStringAction.java">
+        <entry file="file://$PROJECT_DIR$/src/com/xl/plugin/xlplugin/XLPlusAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
-              <folding>
-                <element signature="e#1569#1628#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="292">
+              <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -69,17 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="25" column="78" selection-start-line="25" selection-start-column="78" selection-end-line="25" selection-end-column="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/RequestRunnable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1620">
-              <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+            <state relative-caret-position="468">
+              <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -162,6 +154,8 @@
         <option value="$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/GoogleTranslation.java" />
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/AppendStringAction.java" />
+        <option value="$PROJECT_DIR$/src/com/xl/plugin/xlplugin/AppendStringAction.java" />
+        <option value="$PROJECT_DIR$/src/com/xl/plugin/xlplugin/XLPlusAction.java" />
       </list>
     </option>
   </component>
@@ -206,41 +200,41 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="XLGoogleTranslation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XLGoogleTranslation" type="462c0819:PsiDirectoryNode" />
+              <item name="XLPLus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XLPLus" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="XLGoogleTranslation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XLGoogleTranslation" type="462c0819:PsiDirectoryNode" />
+              <item name="XLPLus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XLPLus" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="XLGoogleTranslation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XLGoogleTranslation" type="462c0819:PsiDirectoryNode" />
+              <item name="XLPLus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XLPLus" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="XLGoogleTranslation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XLGoogleTranslation" type="462c0819:PsiDirectoryNode" />
+              <item name="XLPLus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XLPLus" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="XLGoogleTranslation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XLGoogleTranslation" type="462c0819:PsiDirectoryNode" />
+              <item name="XLPLus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XLPLus" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="translation" type="462c0819:PsiDirectoryNode" />
+              <item name="xlplugin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -451,16 +445,18 @@
       <workItem from="1553051428140" duration="1224000" />
       <workItem from="1553477195120" duration="680000" />
       <workItem from="1553513738381" duration="675000" />
+      <workItem from="1553563000175" duration="295000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16415000" />
+    <option name="totallyTimeSpent" value="16710000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16204691" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16364606" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -472,7 +468,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290735" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.18526544" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -643,20 +639,8 @@
     <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/Configuration.java" />
     <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/Translation.java" />
     <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/Logger.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/trans/Language.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/trans/Translator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/trans/Language.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/trans/Translator.java" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/util.jar!/com/intellij/ui/Gray.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4731">
@@ -664,20 +648,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/http/AbstractHttpParams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1044">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/trans/AbstractTranslator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/http/AbstractHttpParams.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/trans/AbstractTranslator.java" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/openapi/application/Application.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
@@ -714,27 +686,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/http/HttpPostParams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/http/HttpParams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/impl/GoogleTranslator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/http/HttpPostParams.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/http/HttpParams.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/translator/impl/GoogleTranslator.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/concurrent/Future.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -808,6 +762,7 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/RequestRunnable.java" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/com/intellij/application/options/editor/EditorOptionsPanel.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2592">
@@ -826,13 +781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16524">
           <caret line="459" column="9" selection-start-line="459" selection-start-column="9" selection-end-line="459" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/RequestRunnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -864,20 +812,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/icons/translate@3x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/icons/translate@2x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="25" column="78" selection-start-line="25" selection-start-column="78" selection-end-line="25" selection-end-column="78" />
+        <state relative-caret-position="468">
+          <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xiuyukeji/plugin/translation/AppendStringAction.java">
+    <entry file="file://$PROJECT_DIR$/src/com/xl/plugin/xlplugin/XLPlusAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
-          <folding>
-            <element signature="e#1569#1628#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="292">
+          <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
         </state>
       </provider>
     </entry>

@@ -1,8 +1,10 @@
-package com.xiuyukeji.plugin.translation;
+package com.xl.plugin.xlplugin;
 
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.editor.*;
+import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.EditorModificationUtil;
+import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.editor.actionSystem.EditorAction;
 import com.intellij.openapi.editor.actionSystem.EditorWriteActionHandler;
 import com.intellij.openapi.ui.popup.Balloon;
@@ -27,30 +29,43 @@ import org.jetbrains.annotations.NotNull;
  * @date 2019-03-25
  * @time 9:33
  */
-public class AppendStringAction extends EditorAction {
-    private long mLatestClickTime;
-    
-    protected AppendStringAction() {
-        super(new AppendStringAction.Handler());
+public class XLPlusAction extends EditorAction {
+    protected XLPlusAction() {
+        super(new XLPlusAction.Handler());
     }
     
     public static class Handler extends EditorWriteActionHandler {
         public Handler() {
         }
         
+        private long mLatestClickTime;
+        
+        /**
+         * 确认你是不是快速点击
+         *
+         * @return true:不断点击，false：不是
+         */
+        private boolean isFastClick() {
+            long time = System.currentTimeMillis();
+            long timeD = time - mLatestClickTime;
+            if (0 < timeD && timeD < (long) 1000) {
+                return true;
+            }
+            mLatestClickTime = time;
+            return false;
+        }
+        
         @Override
         public void executeWriteAction(final Editor editor, DataContext dataContext) {
+            if (isFastClick()) {
+                return;
+            }
             if (!editor.getSelectionModel().hasSelection(true)) {
                 if (Registry.is("editor.skip.copy.and.cut.for.empty.selection")) {
                     return;
                 }
                 //若没有选中内容，则默认选中光标停留的那一行
-                editor.getCaretModel().runForEachCaret(new CaretAction() {
-                    @Override
-                    public void perform(Caret var1x) {
-                        editor.getSelectionModel().selectLineAtCaret();
-                    }
-                });
+                editor.getCaretModel().runForEachCaret(var1x -> editor.getSelectionModel().selectLineAtCaret());
             }
             SelectionModel sm = editor.getSelectionModel();
             //获取选中的内容
@@ -160,20 +175,5 @@ public class AppendStringAction extends EditorAction {
             }
         }
         return 0;
-    }
-    
-    /**
-     * 确认你是不是快速点击
-     *
-     * @return true:不断点击，false：不是
-     */
-    private boolean isFastClick() {
-        long time = System.currentTimeMillis();
-        long timeD = time - mLatestClickTime;
-        if (0 < timeD && timeD < (long) 1000) {
-            return true;
-        }
-        mLatestClickTime = time;
-        return false;
     }
 }

@@ -19,7 +19,7 @@
     </extensions>
     <actions>
         <!-- Add your actions here -->
-        <action id="XLPLus" class="com.xiuyukeji.plugin.translation.AppendStringAction"
+        <action id="XLPLus" class="com.xl.plugin.xlplugin.XLPlusAction"
                 text="xlcj徐立插件" description="徐立插件">
             <add-to-group group-id="EditMenu" anchor="first"/>
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
