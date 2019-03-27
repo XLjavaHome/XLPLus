@@ -20,7 +20,7 @@
     <actions>
         <!-- Add your actions here -->
         <action id="XLPLus" class="com.xl.plugin.xlplugin.XLPlusAction"
-                text="xlcj徐立插件" description="徐立插件">
+                text="徐立插件" description="徐立插件">
             <add-to-group group-id="EditMenu" anchor="first"/>
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift L"/>

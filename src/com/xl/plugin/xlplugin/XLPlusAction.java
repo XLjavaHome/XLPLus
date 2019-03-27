@@ -37,29 +37,9 @@ public class XLPlusAction extends EditorAction {
     public static class Handler extends EditorWriteActionHandler {
         public Handler() {
         }
-        
-        private long mLatestClickTime;
-        
-        /**
-         * 确认你是不是快速点击
-         *
-         * @return true:不断点击，false：不是
-         */
-        private boolean isFastClick() {
-            long time = System.currentTimeMillis();
-            long timeD = time - mLatestClickTime;
-            if (0 < timeD && timeD < (long) 1000) {
-                return true;
-            }
-            mLatestClickTime = time;
-            return false;
-        }
-        
+    
         @Override
         public void executeWriteAction(final Editor editor, DataContext dataContext) {
-            if (isFastClick()) {
-                return;
-            }
             if (!editor.getSelectionModel().hasSelection(true)) {
                 if (Registry.is("editor.skip.copy.and.cut.for.empty.selection")) {
                     return;
@@ -153,7 +133,6 @@ public class XLPlusAction extends EditorAction {
                 result.add(string.insert(0, ++num + ".").toString());
             }
         }
-        //Messages.showInfoMessage(String.format("选中了%s行", strings.length), "Count Result");
         return StringUtil.join(result, "\n");
     }
     
