@@ -54,7 +54,12 @@ public class XLPlusAction extends EditorAction {
             Set<String> resultSet = new LinkedHashSet<>(contextArray.length);
             //结果
             String resultStr;
-            if (contextArray.length > 1 && (contextArray[0].matches("\\d{5,}") || contextArray[1].matches("\\d{5,}"))) {
+            //如果选中的只有一行，并且以数字开发 去掉数字
+            String first = contextArray[0];
+            if (contextArray.length == 1 && first.matches("\\d+\\..*")) {
+                int index = first.indexOf(".");
+                resultStr = first.substring(index + 1);
+            } else if (contextArray.length > 1 && (first.matches("\\d{5,}") || contextArray[1].matches("\\d{5,}"))) {
                 //BUG摘要
                 resultStr = handBugAbstract(contextArray, resultSet);
             } else {
