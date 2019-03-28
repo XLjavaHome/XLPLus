@@ -37,7 +37,7 @@ public class XLPlusAction extends EditorAction {
     public static class Handler extends EditorWriteActionHandler {
         public Handler() {
         }
-    
+        
         @Override
         public void executeWriteAction(final Editor editor, DataContext dataContext) {
             if (!editor.getSelectionModel().hasSelection(true)) {
@@ -54,7 +54,7 @@ public class XLPlusAction extends EditorAction {
             Set<String> resultSet = new LinkedHashSet<>(contextArray.length);
             //结果
             String resultStr;
-            if (contextArray.length > 1 && contextArray[0].matches("\\d{3,}")) {
+            if (contextArray.length > 1 && (contextArray[0].matches("\\d{5,}") || contextArray[1].matches("\\d{5,}"))) {
                 //BUG摘要
                 resultStr = handBugAbstract(contextArray, resultSet);
             } else {
@@ -94,7 +94,11 @@ public class XLPlusAction extends EditorAction {
      */
     @NotNull
     private static String handBugAbstract(String[] strings, Set<String> result) {
-        result.add(strings[0]);
+        if (StringUtil.isNotEmpty(strings[0].trim())) {
+            result.add(strings[0]);
+        } else {
+            result.add(strings[1]);
+        }
         result.add(strings[strings.length - 1]);
         return StringUtil.join(result, ":");
     }
