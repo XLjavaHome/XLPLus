@@ -71,7 +71,7 @@ public class XLPlusAction extends EditorAction {
                 showPopupBalloon(editor, "没有找到字符");
             }
             //将结果替换所选内容,并在结尾加上换行
-            EditorModificationUtil.insertStringAtCaret(editor, resultStr+"\n", true, false);
+            EditorModificationUtil.insertStringAtCaret(editor, resultStr, true, false);
         }
         
         /**
@@ -105,7 +105,7 @@ public class XLPlusAction extends EditorAction {
             result.add(strings[1]);
         }
         result.add(strings[strings.length - 1]);
-        return StringUtil.join(result, ":")+"\n";
+        return StringUtil.join(result, ":") + "\n";
     }
     
     /**
