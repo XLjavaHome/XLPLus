@@ -56,9 +56,13 @@ public class XLPlusAction extends EditorAction {
             String resultStr = null;
             //如果选中的只有一行，并且以数字开发 去掉数字
             String first = contextArray[0];
-            String startRegex = "\\d+\\..*";
+            //序号开头
+            String startRegex = "\\s*\\d+\\..*";
+            //BUG开头
+            String regex = "\\s*\\d{5,}";
             if (first.matches(startRegex)) {
                 for (String s : contextArray) {
+                    s = s.trim();
                     if (s.matches(startRegex)) {
                         resultSet.add(s.substring(s.indexOf(".") + 1));
                     } else {
@@ -66,12 +70,14 @@ public class XLPlusAction extends EditorAction {
                     }
                 }
                 resultStr = StringUtil.join(resultSet, "\n");
-            } else if (contextArray.length > 1 && (first.matches("\\d{5,}") || contextArray[1].matches("\\d{5,}"))) {
-                //BUG摘要
-                resultStr = handBugAbstract(contextArray, resultSet);
             } else {
-                //加序号
-                resultStr = handOrdNumer(editor, contextArray, resultSet);
+                if (contextArray.length > 1 && (first.matches(regex) || contextArray[1].matches(regex))) {
+                    //BUG摘要
+                    resultStr = handBugAbstract(contextArray, resultSet);
+                } else {
+                    //加序号
+                    resultStr = handOrdNumer(editor, contextArray, resultSet);
+                }
             }
             //覆盖插入
             if (StringUtil.isEmpty(resultStr)) {
