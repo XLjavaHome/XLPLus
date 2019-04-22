@@ -114,9 +114,9 @@ public class XLPlusAction extends EditorAction {
     @NotNull
     private static String handBugAbstract(String[] strings, Set<String> result) {
         if (StringUtil.isNotEmpty(strings[0].trim())) {
-            result.add(strings[0]);
+            result.add(strings[0].trim());
         } else {
-            result.add(strings[1]);
+            result.add(strings[1].trim());
         }
         result.add(strings[strings.length - 1]);
         return StringUtil.join(result, ":");
@@ -138,8 +138,7 @@ public class XLPlusAction extends EditorAction {
         //序号
         int num = initNum(editor);
         for (int i = 0; i < strings.length; i++) {
-            String dataString = strings[i];
-            String dataStrings = dataString.trim();
+            String dataStrings = strings[i].trim();
             if (StringUtil.isEmpty(dataStrings)) {
                 continue;
             }
