@@ -29,3 +29,8 @@ hs_err_pid*
 .idea/smartfox_info.xml
 out/production/GoogleTranslation/META-INF/
 out/production/GoogleTranslation/icons/
+out/production/XLPlus/META-INF/
+src/com/entity/
+src/com/xl/deloy/
+src/com/xl/deploy/
+src/com/xl/gui/
